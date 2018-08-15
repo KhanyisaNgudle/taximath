@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <title>Taxi Math</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
@@ -12,7 +12,9 @@
 <body>
     <header>
         <div class="bckg"></div>
+
         <div class="content">
+            <div class="band"></div>
             <div class="round"></div>
             <p id="desc">front seat</p>
             <hr>
@@ -21,31 +23,41 @@
         </div>
     </header>
     <div class="container">
-        <div class="band"></div>
         <div class="jumbotron shadow p-3 mb-5 bg-white rounded">
 
             <div class="form-group">
                 <label for="fare">Taxi fare:</label>
-                <input type="number" class="form-control" onkeypress="return isNumber(this, event)" step="0.01" id="fare" placeholder=""onfocus="onfocuss(this)">
+                <input type="number" class="form-control" onkeypress="return isNumber(this, event)" step="0.01" id="fare" placeholder=""
+                    onfocus="onfocuss(this)">
 
                 <label for="amount">Amount paid:</label>
-                <input type="number" class="form-control" onkeypress="return isNumber(this, event)" step="0.01" id="amount" placeholder=""onfocus="onfocuss(this)">
+                <input type="number" class="form-control" onkeypress="return isNumber(this, event)" step="0.01" id="amount" placeholder=""
+                    onfocus="onfocuss(this)">
 
                 <label for="passengers">Passengers:</label>
                 <input type="number" class="form-control" onkeypress="return isNumber(this, event)" id="passengers" placeholder="" onfocus="onfocuss(this)">
 
             </div>
             <a class="btn btn-primary" onclick="calculate()">Calculate</a>
-            
+
             <p id="comment">Welcome to the TaxiMath App</p>
-        </div><!--jumbotron collapse-->
-    </div><!--container collapse-->
-    
+            <div class="options">
+                    <hr>
+                    <div class="opt"><a href="" id="home">Home</a></div>
+                    
+                    <div class="opt"><a href="" id="summary">Summary</a></div>
+                </div>
+        </div>
+        <!--jumbotron collapse-->
+    </div>
+    <!--container collapse-->
+
     <script src="script.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 <footer>
-    <p>Built with <3 <a href="#">Khanyi</a></p>
+    <p id="footer-text">Copyright <a href="#"> Khanyi</a></p>
 </footer>
+
 </html>
