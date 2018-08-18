@@ -13,7 +13,7 @@ header {
     height: 250px;
     text-align: center;
     color: white;
-    margin-bottom: 310px;
+    margin-bottom: 330px;
 }
 
 .bckg {
@@ -83,12 +83,16 @@ header h1 {
 
 .options {
     width: 100%;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .opt {
-    display: inline-block;
-    width: 48%;
-    text-align: center;
+    width: 33px;
+    margin: auto;
+    margin-top: 5px;
+    padding: 1px;
 }
 
 .band {
@@ -97,11 +101,7 @@ header h1 {
     transform: translate(-50%, 0);
     top: -10%;
     width: 35px;
-    height: 35px;
-    background-image: url('https://cdn4.iconfinder.com/data/icons/basic-interface-overcolor/512/menu-512.png');
-    background-size: cover;
-    background-position: center;
-    
+    text-align: center;
 }
 
 .form-group {

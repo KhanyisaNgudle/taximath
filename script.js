@@ -25,7 +25,7 @@ function calculate() {
     
     if (fare.value == null || fare.value == "", amount.value == null || amount.value == "", passengers.value == null || passengers.value == ""){
         change_empty_input(fare, amount, passengers);
-        add_comment('can\'t be ', 'empty', 'red', 'white', 'front seat');
+        add_comment('Can\'t be ', 'empty', 'red', 'white', 'front seat');
         clear_inputs();
         return;
     }
@@ -49,7 +49,7 @@ function calculate() {
         clear_inputs();
         return;
     }
-    add_comment("change is: ", "R"+change, "rgb(12, 240, 12)", "greenyellow", "change");
+    add_comment("Change is: ", "R"+change, "rgb(12, 240, 12)", "greenyellow", "change");
     clear_inputs();
 }
 
