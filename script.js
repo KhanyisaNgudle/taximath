@@ -1,3 +1,34 @@
+window.onload = initialise();
+
+var homeIcon;
+var sumIcon;
+var home;
+var sum;
+
+function initialise() {
+    document.getElementById('home-ico').addEventListener('click', showHome);
+    document.getElementById('sum-ico').addEventListener('click', showSummary);
+
+    homeIcon = document.getElementById('home-ico');
+    sumIcon = document.getElementById('sum-ico');
+    home = document.getElementById('home');
+    sum = document.getElementById('summary');
+}
+
+function showHome() {
+    home.style.display = 'block';
+    sum.style.display = 'none';
+    sumIcon.style.color = 'gray';
+    homeIcon.style.color = 'dodgerblue';
+}
+
+function showSummary() {
+    sum.style.display = 'block';
+    home.style.display = 'none';
+    sumIcon.style.color = 'dodgerblue';
+    homeIcon.style.color = 'gray';
+}
+
 function change_empty_input(fare, amount, passengers)
 {
     var i = 0;
