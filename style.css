@@ -158,3 +158,12 @@ header h1 {
     padding-bottom: 10px;
     font-weight: bold;
 }
+
+/* Options */
+
+#home-ico {
+    color: dodgerblue;
+}
+#sum-ico {
+    color: gray;
+}

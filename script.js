@@ -27,6 +27,7 @@ function showSummary() {
     home.style.display = 'none';
     sumIcon.style.color = 'dodgerblue';
     homeIcon.style.color = 'gray';
+    add_comment('', 'TaxiMath', 'gray', 'white', 'front seat');
 }
 
 function change_empty_input(fare, amount, passengers)
@@ -38,8 +39,9 @@ function change_empty_input(fare, amount, passengers)
         (i == 0) ? obj = fare : obj = obj; 
         (i == 1) ? obj = amount : obj = obj;
         (i == 2) ? obj = passengers : obj = obj;
-        if (obj.value == null || obj.value =="")
+        if (obj.value.toString().length < 1)
             obj.style.border = "1.5px solid red";
+        console.log(obj.value.toString().length);
         i++;
     }
 }
@@ -48,22 +50,21 @@ function onfocuss(obj){
     obj.style.border = "1px solid lightgray";
     add_comment('', 'TaxiMath', 'gray', 'white', 'front seat');
 }
-
+var driver = 0;
 function calculate() {
     var fare = document.getElementById('fare');
     var amount = document.getElementById('amount');
     var passengers = document.getElementById('passengers');
     
-    if (fare.value == null || fare.value == "", amount.value == null || amount.value == "", passengers.value == null || passengers.value == ""){
+    if (fare.value.length < 1 || amount.value === null || amount.value === "" || passengers.value == null || passengers.value === ""){
         change_empty_input(fare, amount, passengers);
         add_comment('Can\'t be ', 'empty', 'red', 'white', 'front seat');
-        clear_inputs();
         return;
     }
 
     if (fare.checkValidity() && amount.checkValidity() && passengers.checkValidity()){
         console.log('input validated');
-    }   
+    } 
     else{
         add_comment('input not valid', 'TaxiMath', 'red', 'white', 'front seat');
         console.log('not valid');
@@ -76,11 +77,15 @@ function calculate() {
     var change = amount - (fare * passengers);
     if (change < 0)
     {
-        add_comment("Not enough money for " + passengers + " people, short: ", "R"+(change * -1), 'red', 'red', 'short');
+        var per;
+        (passengers == 1) ? per = "person" : per = "people";
+        add_comment("Not enough money for " + passengers + " " + per + ", short: ", "R"+(change * -1), 'red', 'red', 'short');
         clear_inputs();
         return;
     }
-    add_comment("Change is: ", "R"+change, "rgb(12, 240, 12)", "greenyellow", "change");
+    driver += fare * passengers;
+    document.getElementById('driver-total').innerHTML = "R" + driver.toFixed(2);
+    add_comment("Change is: ", "R"+change.toFixed(2), "rgb(12, 240, 12)", "greenyellow", "change");
     clear_inputs();
 }
 
