@@ -79,7 +79,7 @@ function calculate() {
     {
         var per;
         (passengers == 1) ? per = "person" : per = "people";
-        add_comment("Not enough money for " + passengers + " " + per + ", short: ", "R"+(change * -1), 'red', 'red', 'short');
+        add_comment("Not enough money for " + passengers + " " + per + ", short: ", "R"+(change.toFixed(2) * -1), 'red', 'red', 'short');
         clear_inputs();
         return;
     }
@@ -110,7 +110,11 @@ function isNumber(val, k) {
     }
 
     var ascii = (k.which) ? k.which : k.keyCode;
-    if (ascii > 31 && (ascii != 46 &&(ascii < 48 || ascii > 57)))
+    var pas = document.getElementById('passengers');
+    if (val == pas &&  ascii > 31 &&(ascii < 48 || ascii > 57))
+        return false;
+
+    if (val != pas && ascii > 31 && (ascii != 46 &&(ascii < 48 || ascii > 57)))
         return false;
     return true;
 }
